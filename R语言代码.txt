@@ -1,0 +1,186 @@
+R语言代码
+C:\Users\zishu\AppData\Roaming\Python\Python39\Scripts\radian.exe
+C:\InstallationSoftware\RLanguage\R-4.4.2\bin
+或者使用命令面板：
+按 Ctrl + Shift + P
+输入 "R: Create R Terminal"
+选择该选项
+#####################################################################################
+# T1_S1_Read data
+library(readr)
+library(dplyr)
+data <- read_csv("C:/Users/zishu/Documents/MyGitHub/HolzartenSpan2024UTF8.csv")
+# View(data)
+uf_data <- data %>%
+  filter(LeimCode == "UF" &
+    Primer == "no primer")
+# View(uf_data)
+write_csv(uf_data, "C:/Users/zishu/Documents/MyGitHub/uf_data_filtered.csv")
+pmdi_data <- data %>%
+  filter(LeimCode == "PMDI" &
+    Primer == "no primer")
+# View(pmdi_data)
+write_csv(pmdi_data, "C:/Users/zishu/Documents/MyGitHub/pmdi_data_filtered.csv")
+
+# 合并两个筛选后的数据框
+combined_data <- bind_rows(uf_data, pmdi_data)
+# 将合并后的数据保存为新的CSV文件
+View(combined_data)
+write_csv(combined_data, "C:/Users/zishu/Documents/MyGitHub/combined_data_filtered.csv")
+
+#####################################################################################
+# T1_S1_Read data
+library(readr)
+data <- read_csv("C:/Users/zishu/Documents/MyGitHub/HolzartenSpan2024UTF8.csv")
+# View(data) 查看读取的csv
+# 筛选UF胶黏剂且未经预处理的样品
+uf_data <- data %>%
+  filter(LeimCode == "UF" & Primer == "no primer")
+#######################
+# T1_S20_(描述统计)
+# Determine mean, standard deviation and median for *wood density*, *bending strength* and *IB（ Internal Bond Strength）* (for all wood species).
+# 然后使用dplyr进行统计计算
+# 3. 加载dplyr
+library(dplyr)
+
+# 4. 使用基本R函数计算（不使用dplyr的管道操作）
+results <- data.frame(
+  # 木材密度统计量
+  Density_Mean = round(mean(data$Dens_mitt, na.rm = TRUE), 2), # 保留小数点后两位
+  Density_SD = round(sd(data$Dens_mitt, na.rm = TRUE), 2),
+  Density_Median = round(median(data$Dens_mitt, na.rm = TRUE), 2),
+
+  # 抗弯强度统计量
+  MOR_Mean = round(mean(data$MOR, na.rm = TRUE), 2),
+  MOR_SD = round(sd(data$MOR, na.rm = TRUE), 2),
+  MOR_Median = round(median(data$MOR, na.rm = TRUE), 2),
+
+  # 内结合强度统计量
+  IB_Mean = round(mean(data$IB, na.rm = TRUE), 2),
+  IB_SD = round(sd(data$IB, na.rm = TRUE), 2),
+  IB_Median = round(median(data$IB, na.rm = TRUE), 2)
+)
+
+# 打印结果
+print(results)
+
+#########################################################################################################
+# What is the skewness of „swell 2h“?
+# What is the range for „IB“ ?
+
+# 加载必要的包
+library(moments) # 用于计算偏度
+library(dplyr) # 用于数据处理
+
+# 计算Quell2h的偏度
+quell2h_skewness <- skewness(data$Quell2h)
+print(paste("Quell2h的偏度:", round(quell2h_skewness, 4)))
+
+# 计算IB的范围
+ib_range <- range(data$IB)
+print(paste("IB的范围:", round(ib_range[2] - ib_range[1], 4)))
+print(paste("IB的最小值:", round(ib_range[1], 4)))
+print(paste("IB的最大值:", round(ib_range[2], 4)))
+
+# 创建可视化
+library(ggplot2)
+
+# Quell2h的分布图
+p1 <- ggplot(data, aes(x = Quell2h)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightblue", color = "black") +
+  geom_density(color = "red") +
+  labs(
+    title = "Quell2h的分布",
+    x = "Quell2h",
+    y = "密度"
+  ) +
+  theme_minimal()
+
+# IB的分布图
+p2 <- ggplot(data, aes(x = IB)) +
+  geom_histogram(aes(y = ..density..), bins = 30, fill = "lightgreen", color = "black") +
+  geom_density(color = "red") +
+  labs(
+    title = "IB的分布",
+    x = "IB",
+    y = "密度"
+  ) +
+  theme_minimal()
+
+# 打印图形
+print(p1)
+print(p2)
+
+# 保存图形
+ggsave("quell2h_distribution.png", p1)
+ggsave("ib_distribution.png", p2)
+#########################################################################################################
+# 加载必要的包
+library(moments) # 用于计算峰度
+library(ggplot2) # 用于绘图
+library(dplyr) # 用于数据处理
+
+# 按树种分组计算峰度
+kurtosis_by_species <- data %>%
+  group_by(HolzartCode) %>%
+  summarise(
+    n = n(),
+    mean_IB = mean(IB),
+    sd_IB = sd(IB),
+    kurtosis = kurtosis(IB) - 3, # 超额峰度
+    se_kurtosis = sqrt((24 * n * (n - 1)^2) / ((n - 3) * (n - 2) * (n + 3) * (n + 5))), # 峰度的标准误
+    significant = abs(kurtosis / se_kurtosis) > 1.96 # 显著性检验 (95% CI)
+  )
+
+# 打印结果
+print("各树种IB值的峰度分析：")
+print(kurtosis_by_species)
+# 创建箱线图和密度图
+p3 <- ggplot(data, aes(x = HolzartCode, y = IB)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(
+    title = "IB值分布箱线图",
+    x = "树种",
+    y = "IB值"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# 创建密度图
+p4 <- ggplot(data, aes(x = IB, fill = HolzartCode)) +
+  geom_density(alpha = 0.5) +
+  theme_minimal() +
+  labs(
+    title = "IB值密度分布图",
+    x = "IB值",
+    y = "密度"
+  ) +
+  theme(legend.title = element_blank())
+
+# 执行Shapiro-Wilk正态性检验
+normality_tests <- data %>%
+  group_by(HolzartCode) %>%
+  summarise(
+    shapiro_p_value = shapiro.test(IB)$p.value
+  )
+
+print("\n正态性检验结果：")
+print(normality_tests)
+
+# 进行Levene方差齐性检验
+library(car)
+levene_test <- leveneTest(IB ~ HolzartCode, data = data)
+print("\n方差齐性检验结果：")
+print(levene_test)
+
+# 如果数据基本符合正态分布和方差齐性，进行单因素方差分析
+anova_result <- aov(IB ~ HolzartCode, data = data)
+print("\n方差分析结果：")
+print(summary(anova_result))
+
+# 如果ANOVA显著，进行事后检验
+if (summary(anova_result)[[1]]["Pr(>F)"][1, ] < 0.05) {
+  tukey_result <- TukeyHSD(anova_result)
+  print("\nTukey事后检验结果：")
+  print(tukey_result)
+}

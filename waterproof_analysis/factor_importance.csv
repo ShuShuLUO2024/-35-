@@ -1,0 +1,17 @@
+"Measure","Factor","Importance"
+"Quell2h","Dens_mitt",9.64392020523316e-05
+"Quell2h","LeimCodeUF",0.0257911618237319
+"Quell2h","LeimgradCodelow",0.0334642047317565
+"Quell2h","Primerno primer",0.0393864663352593
+"Quell24h","Dens_mitt",0.000311373471962927
+"Quell24h","LeimCodeUF",0.086274161798
+"Quell24h","LeimgradCodelow",0.0885697173087171
+"Quell24h","Primerno primer",0.101199184733837
+"WA2h","Dens_mitt",0.000578468903986126
+"WA2h","LeimCodeUF",0.0346041778462406
+"WA2h","LeimgradCodelow",0.0299334362935746
+"WA2h","Primerno primer",0.101134153393043
+"WA24h","Dens_mitt",0.00172216595877069
+"WA24h","LeimCodeUF",0.273478995144618
+"WA24h","LeimgradCodelow",0.172967370165471
+"WA24h","Primerno primer",0.135862438308892

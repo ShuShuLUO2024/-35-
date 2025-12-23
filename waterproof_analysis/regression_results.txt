@@ -1,0 +1,183 @@
+Multiple Linear Regression Analysis for Waterproof Properties
+=========================================================
+
+
+Analysis Results for Quell2h:
+----------------------------------
+
+Call:
+lm(formula = formula, data = data)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.052284 -0.031078 -0.021376 -0.001384  0.231963 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)   
+(Intercept)     -6.174e-02  1.819e-01  -0.339  0.73529   
+Dens_mitt        9.644e-05  2.391e-04   0.403  0.68782   
+LeimCodeUF       2.579e-02  1.344e-02   1.919  0.05878 . 
+LeimgradCodelow  3.346e-02  1.358e-02   2.463  0.01605 * 
+Primerno primer  3.939e-02  1.400e-02   2.814  0.00624 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.05965 on 75 degrees of freedom
+Multiple R-squared:  0.1901,	Adjusted R-squared:  0.1469 
+F-statistic:   4.4 on 4 and 75 DF,  p-value: 0.002997
+
+
+ANOVA Analysis:
+Analysis of Variance Table
+
+Response: Quell2h
+             Df   Sum Sq   Mean Sq F value   Pr(>F)   
+Dens_mitt     1 0.004426 0.0044259  1.2440 0.268264   
+LeimCode      1 0.011108 0.0111084  3.1223 0.081298 . 
+LeimgradCode  1 0.018911 0.0189110  5.3154 0.023905 * 
+Primer        1 0.028175 0.0281747  7.9191 0.006243 **
+Residuals    75 0.266835 0.0035578                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Variance Inflation Factors (VIF):
+   Dens_mitt     LeimCode LeimgradCode       Primer 
+    1.153841     1.015332     1.037311     1.101198 
+
+Root Mean Square Error (RMSE): 0.057753
+Mean Absolute Error (MAE): 0.038573
+
+Analysis Results for Quell24h:
+----------------------------------
+
+Call:
+lm(formula = formula, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.13027 -0.04464 -0.01905  0.04715  0.24486 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      0.2549991  0.2386662   1.068    0.289    
+Dens_mitt       -0.0003114  0.0003136  -0.993    0.324    
+LeimCodeUF       0.0862742  0.0176290   4.894 5.51e-06 ***
+LeimgradCodelow  0.0885697  0.0178188   4.971 4.10e-06 ***
+Primerno primer  0.1011992  0.0183593   5.512 4.80e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.07824 on 75 degrees of freedom
+Multiple R-squared:  0.5491,	Adjusted R-squared:  0.5251 
+F-statistic: 22.84 on 4 and 75 DF,  p-value: 2.295e-12
+
+
+ANOVA Analysis:
+Analysis of Variance Table
+
+Response: Quell24h
+             Df  Sum Sq  Mean Sq F value    Pr(>F)    
+Dens_mitt     1 0.11101 0.111008  18.133 5.899e-05 ***
+LeimCode      1 0.12920 0.129196  21.104 1.721e-05 ***
+LeimgradCode  1 0.13302 0.133017  21.729 1.337e-05 ***
+Primer        1 0.18600 0.186002  30.384 4.795e-07 ***
+Residuals    75 0.45913 0.006122                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Variance Inflation Factors (VIF):
+   Dens_mitt     LeimCode LeimgradCode       Primer 
+    1.153841     1.015332     1.037311     1.101198 
+
+Root Mean Square Error (RMSE): 0.075757
+Mean Absolute Error (MAE): 0.060250
+
+Analysis Results for WA2h:
+----------------------------------
+
+Call:
+lm(formula = formula, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.18799 -0.10899 -0.01985  0.05369  0.58314 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)   
+(Intercept)      0.5589924  0.4711198   1.187  0.23916   
+Dens_mitt       -0.0005785  0.0006191  -0.934  0.35308   
+LeimCodeUF       0.0346042  0.0347991   0.994  0.32323   
+LeimgradCodelow -0.0299334  0.0351737  -0.851  0.39747   
+Primerno primer  0.1011342  0.0362407   2.791  0.00667 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1544 on 75 degrees of freedom
+Multiple R-squared:  0.1477,	Adjusted R-squared:  0.1023 
+F-statistic:  3.25 on 4 and 75 DF,  p-value: 0.01631
+
+
+ANOVA Analysis:
+Analysis of Variance Table
+
+Response: WA2h
+             Df  Sum Sq  Mean Sq F value   Pr(>F)   
+Dens_mitt     1 0.07994 0.079939  3.3512 0.071128 . 
+LeimCode      1 0.01987 0.019873  0.8331 0.364294   
+LeimgradCode  1 0.02448 0.024485  1.0264 0.314253   
+Primer        1 0.18576 0.185763  7.7876 0.006668 **
+Residuals    75 1.78903 0.023854                    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Variance Inflation Factors (VIF):
+   Dens_mitt     LeimCode LeimgradCode       Primer 
+    1.153841     1.015332     1.037311     1.101198 
+
+Root Mean Square Error (RMSE): 0.149542
+Mean Absolute Error (MAE): 0.105325
+
+Analysis Results for WA24h:
+----------------------------------
+
+Call:
+lm(formula = formula, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.35337 -0.12511 -0.02062  0.10361  0.39730 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      1.5359028  0.6147669   2.498 0.014667 *  
+Dens_mitt       -0.0017222  0.0008078  -2.132 0.036292 *  
+LeimCodeUF       0.2734790  0.0454095   6.023  5.9e-08 ***
+LeimgradCodelow  0.1729674  0.0458984   3.768 0.000325 ***
+Primerno primer  0.1358624  0.0472907   2.873 0.005286 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2015 on 75 degrees of freedom
+Multiple R-squared:  0.5044,	Adjusted R-squared:  0.478 
+F-statistic: 19.09 on 4 and 75 DF,  p-value: 7.332e-11
+
+
+ANOVA Analysis:
+Analysis of Variance Table
+
+Response: WA24h
+             Df  Sum Sq Mean Sq F value    Pr(>F)    
+Dens_mitt     1 0.84924 0.84924 20.9081 1.865e-05 ***
+LeimCode      1 1.38735 1.38735 34.1563 1.235e-07 ***
+LeimgradCode  1 0.52912 0.52912 13.0269 0.0005515 ***
+Primer        1 0.33525 0.33525  8.2537 0.0052865 ** 
+Residuals    75 3.04633 0.04062                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Variance Inflation Factors (VIF):
+   Dens_mitt     LeimCode LeimgradCode       Primer 
+    1.153841     1.015332     1.037311     1.101198 
+
+Root Mean Square Error (RMSE): 0.195139
+Mean Absolute Error (MAE): 0.155076

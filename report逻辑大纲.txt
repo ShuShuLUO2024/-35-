@@ -1,0 +1,70 @@
+report逻辑大纲
+
+1 刨花板用木材的基础研究
+A. 木材类型基础性能对比
+硬木类(橡木、山毛榉、杨木)特性分析
+软木类(杨木，云杉、松木)特性分析
+(类别使用物理特性进行划分）
+密度、强度等基本性能对比
+关键问题: Is there a "best/ideal" wood species for particleboards?
+
+B. 关键性能指标研究
+吸水性能与尺寸稳定性
+机械强度特性
+加工适应性
+关键问题: Do different wood species have effects on key properties?
+
+
+硬木替代软木的可行性研究
+A. 硬木与软木的系统对比
+整体性能差异分析
+生产工艺适应性
+成本效益评估
+
+B. 典型代表物种深入研究(橡木vs云杉)
+具体性能对比
+工艺参数调整需求
+产品质量评价
+关键问题: Can oak wood be used in the same way as spruce?
+
+
+胶黏剂作用机理研究
+A. 胶黏剂适应性研究
+PMDI与不同木材的相容性
+UF与不同木材的相容性
+界面结合机理分析
+关键问题: Is adhesive performance dependent on wood species?
+
+B. 施胶量优化研究
+不同施胶量效果研究
+PMDI(2%、4%)
+UF(5.5%、12%)
+
+
+木材-胶黏剂交互作用分析
+关键问题: What are the optimal resination levels?
+性能提升研究
+A. 预处理工艺优化
+三聚氰胺树脂预处理效果
+工艺参数优化
+性能提升机理
+关键问题: Can pretreatment improve board properties?
+
+
+应用价值评估
+A. 性能优势分析
+不同木材的特有优势
+硬木刨花板的差异化特点
+关键问题: Are there advantages of specific species?
+
+B. 市场应用前景
+特定性能带来的市场机会
+应用领域拓展
+关键问题: What are the market opportunities?
+
+这个框架的优点:
+
+从木材大类研究开始,建立基础认知
+通过典型物种深入研究,验证替代可行性
+系统研究工艺参数和改进方法
+最终指向市场应用
